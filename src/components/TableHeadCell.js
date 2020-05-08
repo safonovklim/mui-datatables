@@ -171,8 +171,11 @@ class TableHeadCell extends React.Component {
                   {children}
                 </div>
                 <div className={classes.sortAction}>
-                  {!sortActive && showSortNoneIcon && <SortIcon className={classes.sortLabelNone} />}
-                  <TableSortLabel {...sortLabelProps} />
+                  {!sortActive && showSortNoneIcon ? (
+                    <SortIcon className={classes.sortLabelNone} />
+                  ) : (
+                    <TableSortLabel {...sortLabelProps} />
+                  )}
                 </div>
               </div>
             </Tooltip>
