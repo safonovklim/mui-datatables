@@ -101,7 +101,18 @@ class TableHeadCell extends React.Component {
   };
 
   render() {
-    const { children, classes, options, sortDirection, sort, hint, print, column, cellHeaderProps = {}, showSortNoneIcon } = this.props;
+    const {
+      children,
+      classes,
+      options,
+      sortDirection,
+      sort,
+      hint,
+      print,
+      column,
+      cellHeaderProps = {},
+      showSortNoneIcon,
+    } = this.props;
     const { className, ...otherProps } = cellHeaderProps;
 
     const sortActive = sortDirection !== 'none' && sortDirection !== undefined ? true : false;
@@ -160,7 +171,7 @@ class TableHeadCell extends React.Component {
                   {children}
                 </div>
                 <div className={classes.sortAction}>
-                  { (!sortActive && showSortNoneIcon) && <SortIcon className={classes.sortLabelNone}/> }
+                  {!sortActive && showSortNoneIcon && <SortIcon className={classes.sortLabelNone} />}
                   <TableSortLabel {...sortLabelProps} />
                 </div>
               </div>
