@@ -207,6 +207,7 @@ class MUIDataTable extends React.Component {
       onDownload: PropTypes.func,
       setTableProps: PropTypes.func,
       setRowProps: PropTypes.func,
+      showSortNoneIcon: PropTypes.bool,
     }),
     /** Pass and use className to style MUIDataTable as desired */
     className: PropTypes.string,
@@ -335,6 +336,7 @@ class MUIDataTable extends React.Component {
       separator: ',',
     },
     setTableProps: () => ({}),
+    showSortNoneIcon: false,
   });
 
   handleOptionDeprecation = () => {

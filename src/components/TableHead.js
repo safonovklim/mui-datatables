@@ -31,7 +31,6 @@ class TableHead extends React.Component {
 
   render() {
     const { classes, columns, count, options, data, setCellRef, selectedRows } = this.props;
-
     const numSelected = (selectedRows && selectedRows.data.length) || 0;
     let isIndeterminate = numSelected > 0 && numSelected < count;
     let isChecked = numSelected === count ? true : false;
@@ -94,6 +93,7 @@ class TableHead extends React.Component {
                   toggleSort={this.handleToggleColumn}
                   hint={column.hint}
                   print={column.print}
+                  showSortNoneIcon={options.showSortNoneIcon}
                   options={options}
                   column={column}>
                   {column.label}

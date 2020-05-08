@@ -3,6 +3,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Tooltip from '@material-ui/core/Tooltip';
 import HelpIcon from '@material-ui/icons/Help';
+import SortIcon from '@material-ui/icons/SwapVert';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -43,6 +44,9 @@ const defaultHeadCellStyles = theme => ({
     verticalAlign: 'top',
     cursor: 'pointer',
   },
+  sortLabelNone: {
+    height: '16px',
+  },
   sortLabelRoot: {
     height: '10px',
   },
@@ -81,6 +85,7 @@ class TableHeadCell extends React.Component {
     print: PropTypes.bool.isRequired,
     /** Optional to be used with `textLabels.body.columnHeaderTooltip` */
     column: PropTypes.object,
+    showSortNoneIcon: PropTypes.bool,
   };
 
   handleKeyboardSortinput = e => {
@@ -96,7 +101,7 @@ class TableHeadCell extends React.Component {
   };
 
   render() {
-    const { children, classes, options, sortDirection, sort, hint, print, column, cellHeaderProps = {} } = this.props;
+    const { children, classes, options, sortDirection, sort, hint, print, column, cellHeaderProps = {}, showSortNoneIcon } = this.props;
     const { className, ...otherProps } = cellHeaderProps;
 
     const sortActive = sortDirection !== 'none' && sortDirection !== undefined ? true : false;
@@ -106,7 +111,7 @@ class TableHeadCell extends React.Component {
     const sortLabelProps = {
       classes: { root: classes.sortLabelRoot },
       active: sortActive,
-      hideSortIcon: true,
+      hideSortIcon: !showSortNoneIcon,
       ...(ariaSortDirection ? { direction: sortDirection } : {}),
     };
 
@@ -150,11 +155,12 @@ class TableHeadCell extends React.Component {
                 <div
                   className={classNames({
                     [classes.data]: true,
-                    [classes.sortActive]: sortActive,
+                    [classes.sortActive]: sortActive || showSortNoneIcon,
                   })}>
                   {children}
                 </div>
                 <div className={classes.sortAction}>
+                  { (!sortActive && showSortNoneIcon) && <SortIcon className={classes.sortLabelNone}/> }
                   <TableSortLabel {...sortLabelProps} />
                 </div>
               </div>
