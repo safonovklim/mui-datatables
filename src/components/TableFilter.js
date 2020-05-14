@@ -152,10 +152,10 @@ class TableFilter extends React.Component {
                         root: classes.checkbox,
                         checked: classes.checked,
                       }}
-                      value={filterValue != null ? filterValue.toString() : ''}
+                      value={filterValue !== null ? filterValue.toString() : ''}
                     />
                   }
-                  label={filterValue}
+                  label={String(filterValue)}
                 />
               </Grid>
             ))}

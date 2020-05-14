@@ -6,20 +6,20 @@ class Example extends React.Component {
 
   render() {
 
-    const columns = ["Name", "Title", "Location"];
+    const columns = ["Name", "Value", "Title", "Location"];
 
     const data = [
-      ["Gabby George", "Business Analyst", "Minneapolis"],
-      ["Aiden Lloyd", "Business Consultant", "Dallas"],
-      ["Jaden Collins", "Attorney", "Santa Ana"],
-      ["Franky Rees", "Business Analyst", "St. Petersburg"],
-      ["Aaren Rose", null, "Toledo"]
+      ["Gabby George", 5, "Business Analyst", "Minneapolis"],
+      ["Aiden Lloyd", 1, "Business Consultant", "Dallas"],
+      ["Jaden Collins", false, "Attorney", "Santa Ana"],
+      ["Franky Rees", true, "Business Analyst", "St. Petersburg"],
+      ["Aaren Rose", 12345, null, "Toledo"]
     ];
 
 
     const options = {
       filter: true,
-      filterType: 'dropdown',
+      filterType: 'checkbox',
       responsive: 'stacked',
     };
 
