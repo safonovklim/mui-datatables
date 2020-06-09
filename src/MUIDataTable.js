@@ -180,6 +180,7 @@ class MUIDataTable extends React.Component {
         yAxis: PropTypes.bool,
       }),
       page: PropTypes.number,
+      forcedPageNumber: PropTypes.number,
       count: PropTypes.number,
       rowsSelected: PropTypes.array,
       rowsExpanded: PropTypes.array,
@@ -1395,6 +1396,8 @@ class MUIDataTable extends React.Component {
     let tableClassNames = classnames(classes.tableRoot, tableProps.className);
     delete tableProps.className; // remove className from props to avoid the className being applied twice
 
+    const pageNumber = this.options.forcedPageNumber !== undefined ? this.options.forcedPageNumber : page;
+
     return (
       <Paper elevation={this.options.elevation} ref={this.tableContent} className={paperClasses}>
         {selectedRows.data.length && this.options.disableToolbarSelect !== true ? (
@@ -1465,7 +1468,7 @@ class MUIDataTable extends React.Component {
               activeColumn={activeColumn}
               data={displayData}
               count={rowCount}
-              page={page}
+              page={pageNumber}
               rowsPerPage={rowsPerPage}
               handleHeadUpdateRef={fn => (this.updateToolbarSelect = fn)}
               selectedRows={selectedRows}
@@ -1478,7 +1481,7 @@ class MUIDataTable extends React.Component {
               data={displayData}
               count={rowCount}
               columns={columns}
-              page={page}
+              page={pageNumber}
               rowsPerPage={rowsPerPage}
               selectedRows={selectedRows}
               selectRowUpdate={this.selectRowUpdate}
@@ -1492,7 +1495,7 @@ class MUIDataTable extends React.Component {
         </div>
         <TableFooter
           options={this.options}
-          page={page}
+          page={pageNumber}
           rowCount={rowCount}
           rowsPerPage={rowsPerPage}
           changeRowsPerPage={this.changeRowsPerPage}
