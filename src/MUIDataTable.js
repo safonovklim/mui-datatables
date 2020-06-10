@@ -338,6 +338,7 @@ class MUIDataTable extends React.Component {
     },
     setTableProps: () => ({}),
     showSortNoneIcon: false,
+    forcedPageNumber: null
   });
 
   handleOptionDeprecation = () => {
@@ -1396,7 +1397,7 @@ class MUIDataTable extends React.Component {
     let tableClassNames = classnames(classes.tableRoot, tableProps.className);
     delete tableProps.className; // remove className from props to avoid the className being applied twice
 
-    const pageNumber = this.options.forcedPageNumber !== undefined ? this.options.forcedPageNumber : page;
+    const pageNumber = typeof this.options.forcedPageNumber === 'number' ? this.options.forcedPageNumber : page;
 
     return (
       <Paper elevation={this.options.elevation} ref={this.tableContent} className={paperClasses}>

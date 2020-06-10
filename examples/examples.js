@@ -1,4 +1,4 @@
-import ArrayValueColumns from './array-value-columns';
+ import ArrayValueColumns from './array-value-columns';
 import ColumnFilters from './column-filters';
 import ColumnOptionsUpdate from './column-options-update';
 import Component from './component';
@@ -30,6 +30,7 @@ import Simple from './simple';
 import SimpleNoToolbar from './simple-no-toolbar';
 import TextLocalization from './text-localization';
 import Themes from './themes';
+import ForcedPageNumber from './forced-page-number';
 
 /**
  * Here you can add any extra examples with the Card label as the key, and the component to render as the value
@@ -67,4 +68,5 @@ export default {
   'Simple No Toolbar': SimpleNoToolbar,
   'Text Localization': TextLocalization,
   Themes: Themes,
+  'Forced Page Number': ForcedPageNumber,
 };
