@@ -338,7 +338,7 @@ class MUIDataTable extends React.Component {
     },
     setTableProps: () => ({}),
     showSortNoneIcon: false,
-    forcedPageNumber: null
+    forcedPageNumber: null,
   });
 
   handleOptionDeprecation = () => {
